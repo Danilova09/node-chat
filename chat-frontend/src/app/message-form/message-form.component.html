@@ -2,16 +2,16 @@
   <mat-card>
     <mat-card-content>
       <mat-card-title style="padding: 20px 0 20px 0;">Say something!</mat-card-title>
-      <form class="form">
+      <form class="form" (ngSubmit)="onSubmit()" #form="ngForm">
         <div fxLayout="column">
           <mat-form-field appearance="fill">
             <mat-label>Author</mat-label>
-            <input type="text" matInput required>
+            <input type="text" matInput name="author" ngModel>
             <mat-icon matSuffix color="primary">sentiment_very_satisfied</mat-icon>
           </mat-form-field>
           <mat-form-field appearance="fill">
             <mat-label>Message</mat-label>
-            <input type="text" matInput required>
+            <input type="text" matInput name="message" ngModel>
             <mat-icon matSuffix color="primary">message</mat-icon>
           </mat-form-field>
         </div>

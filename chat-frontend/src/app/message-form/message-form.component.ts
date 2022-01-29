@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MessagesService } from '../shared/messages.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-message-form',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message-form.component.sass']
 })
 export class MessageFormComponent implements OnInit {
+  @ViewChild('form') form!: NgForm;
 
-  constructor() { }
+  constructor(
+    private messagesService: MessagesService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit() {
+    const message = {
+      author: this.form.controls['author'].value,
+      message: this.form.controls['message'].value,
+    }
+    this.messagesService.addMessage(message);
   }
 
 }
