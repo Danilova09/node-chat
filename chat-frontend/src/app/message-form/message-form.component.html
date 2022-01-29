@@ -1,1 +1,22 @@
-<p>message-form works!</p>
+<div class="message-form-block">
+  <mat-card>
+    <mat-card-content>
+      <mat-card-title style="padding: 20px 0 20px 0;">Say something!</mat-card-title>
+      <form class="form">
+        <div fxLayout="column">
+          <mat-form-field appearance="fill">
+            <mat-label>Author</mat-label>
+            <input type="text" matInput required>
+            <mat-icon matSuffix color="primary">sentiment_very_satisfied</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Message</mat-label>
+            <input type="text" matInput required>
+            <mat-icon matSuffix color="primary">message</mat-icon>
+          </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" style="margin-left: auto; display: block;" type="button">Send</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
