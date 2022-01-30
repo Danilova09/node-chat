@@ -1,22 +1,20 @@
 const express = require('express');
 const cors = require('cors');
+const messages = require('./app/messages');
+const dataBase = require('./dataBase');
 const app = express();
-const port= 5000;
-
+const port = 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use('/messages', messages);
 
-app.get('/messages', (request, response) => {
-    response.send({message: 'main page'});
-});
+const run = async () => {
+    await dataBase.init();
 
-app.post('/messages', (request, response) => {
-    console.log(request.body);
-    response.send({message: 'main page'});
-})
+    app.listen(port, () => {
+        console.log('Server is listening port ' + port, '...');
+    });
+}
 
-
-app.listen(port, () => {
-    console.log('Server is listening port ' + port, '...');
-})
+run().catch(error => console.log(error));
