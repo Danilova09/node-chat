@@ -1,4 +1,9 @@
 <div class="messages-block">
-  <app-message-item></app-message-item>
-  <app-message-item></app-message-item>
+  <div class="loading-messages" fxLayout="column" fxLayoutAlign="center center" *ngIf="fetchingMessages">
+    <mat-spinner [diameter]="70"></mat-spinner>
+  </div>
+  <div class="messages-list" *ngIf="!fetchingMessages">
+    <app-message-item *ngFor="let message of messages"
+                      [message]="message"></app-message-item>
+  </div>
 </div>

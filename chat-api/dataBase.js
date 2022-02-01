@@ -13,12 +13,20 @@ module.exports = {
         }
     },
     getMessages() {
-        return data;
+        return data.length < 30 ? data : data.slice(0, 30);
+    },
+    getMessagesByDate(date) {
+        return data.filter((message) => {
+            const datetime = new Date(message.datetime);
+            if (datetime > date) {
+                return message;
+            }
+        })
     },
     addItem(item) {
         item.id = nanoid();
         item.datetime = new Date().toISOString();
-        data.push(item);
+        data.unshift(item);
         return this.save();
     },
     save() {

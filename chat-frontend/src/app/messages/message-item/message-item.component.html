@@ -3,13 +3,11 @@
     <div mat-card-avatar class="example-header-image">
       <mat-icon color="primary">account_circle</mat-icon>
     </div>
-    <mat-card-title>Name</mat-card-title>
-    <mat-card-subtitle>21.21.22</mat-card-subtitle>
+    <mat-card-title>{{ message.author }}</mat-card-title>
+    <mat-card-subtitle>{{ message.datetime.slice(0, 10) }}, {{ message.datetime.slice(11, 16) }}</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <p>
-      Lorem ipsum dolor sit amet.
-    </p>
+    <p>{{ message.message }}</p>
   </mat-card-content>
   <mat-card-actions>
     <button mat-raised-button>VIEW</button>

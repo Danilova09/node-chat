@@ -11,7 +11,6 @@ app.use('/messages', messages);
 
 const run = async () => {
     await dataBase.init();
-
     app.listen(port, () => {
         console.log('Server is listening port ' + port, '...');
     });
